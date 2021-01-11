@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+    <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body style="margin-top: 20px">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" align="center" style="margin-top: 16px; top:18px;">
+        Once Captian America said <Strong>"Get High!"</Strong>
+
+        <script>
+    $(document).ready(function () {
+
+window.setTimeout(function() {
+    $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+        $(this).remove();
+    });
+}, 5000);
+
+});
+</script>
+</div>
+<div class="container" style="top: 30px">
+  <form class="form-group" method="POST">
+     {{ form.hidden_tag() }}
+
+     <div class="form-group">
+     <p style="color: #00acee">{{ form.title.label(class="form-control-label")}}</p>
+     {{ form.title(class="form-control form-control-lg ") }}
+     </div>
+     <div class="form-group">
+         <p style="color: #00acee">{{ form.text.label(class="form-control-label") }}</p>
+     {{ form.text(class="form-control form-control-lg") }}
+     </div>
+     <div class="form-group">
+         {{ form.submit(class="btn btn-outline-info") }}
+     </div>
+  </form>
+
+</div>
+    <div class="jumbotron" style="padding-top: 0px; padding-bottom: 0px">
+        <p><strong>SHARE YOUR :</strong> </p>
+            <p class="btn btn-primary">#BlueDrean</p>
+            <p class="btn btn-outline-warning">#Experience</p>
+            <p class="btn btn-info">#Ideas</p>
+            <p class="btn btn-outline-danger">#Love</p>
+            <p class="btn btn-outline-success">#OGKush</p>
+            <p class="btn btn-success">#LemonHaze</p>
+            <p class="btn btn-outline-danger">#Trips</p>
+            <p class="btn btn-outline-info">#Dogs</p>
+            <p class="btn btn-primary">#Story</p>
+            <p class="btn btn-outline-warning">#Animals</p>
+            <p class="btn btn-info">#Pets</p>
+        <p class="btn btn-dark">and many more</p>
+    </div>
+    </body>
+
+{% endblock content %}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" type= "text/css" href= "../static/master.css">
+     <script src="../static/master.js"></script>
+       <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/sharer.js/latest/sharer.min.js"></script>
+        <script type="text/javascript">data = {{ data | safe }}</script>
+      <meta charset="utf-8">
+      <style>
+  body {
+    padding-top: 40px;
+      padding-bottom: 60px;
+      color: black;
+  }
+  .dark-mode {
+  background-color: #303030;
+  color: black;
+}
+  .dark-mode > div{
+      color: black;
+  }
+  @media (max-width: 980px) {
+    body {
+      padding-top: 0;
+    }
+
+  }
+
+</style>
+      <script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+    <title></title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="{{ url_for('core.index') }}">
+    <img src="../static/images/weed.png" width="100" height="35" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('core.index') }}">Home <i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('core.info') }}">About-Us <i class="fas fa-address-card"></i></a>
+      </li>
+         {% if current_user.is_authenticated %}
+    <li class="nav-item active"><a class="nav-link" href="{{ url_for('users.logout') }}">Log-Out<i class="fas fa-sign-out-alt"></i></a></li>
+    <li class="nav-item active"><a class="nav-link" href="{{ url_for('users.account') }}">Account <i class="fas fa-user-circle"></i></a></li>
+    <li class="nav-item active"><a class="nav-link" href="{{ url_for('blog_posts.create_post') }}">New Post <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-suit-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:red">
+  <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+</svg></a></li>
+    {% else %}
+    <li class="nav-item active"><a class="nav-link" href="{{ url_for('users.login') }}" >Log-In <i class="fas fa-sign-in-alt"></i></a></li>
+    <li class="nav-item active"><a class="nav-link" href="{{ url_for('users.register') }}">Sign-Up <i class="fas fa-user-plus"></i></a></li>
+    {% endif %}
+      <script>
+            var domainroot=""
+            function Gsitesearch(curobj){ curobj.q.value=""+domainroot+" "+curobj.qfront.value }
+    </script>
+  <!-- <li class="nav-item active" id="google">
+          <form class="form-inline my-2 my-lg-0" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+        <div class="input-group"> <input name="q" type="hidden" />
+        <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="Google Site Search" maxlength="50"/>
+        <span class="input-group-btn">
+            <button type="submit" class="search-button btn btn-primary" style="margin-left: 2px">
+                <span class="glyphicon glyphicon-search"></span> Enter </button> </span>
+        </div>
+    </form>
+  </li> -->
+          <li class="nav-item active"><button onclick="myFunction()" class='btn btn-secondary pushme' data-default-text="Too much light!" data-new-text="Now i cant see!" id="lightdark" >Too much light!</button></li>
+      <script>
+        $(".pushme").click(function () {
+            var $element = $(this);
+            $element.text(function(i, text) {
+                return text == $element.data('default-text') ? $element.data('new-text')
+                                                            : $element.data('default-text');
+            });
+        });
+    </script>
+
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+  {% block content %}
+
+  {% endblock %}
+</div>
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom" id="footer">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <p class="btn btn-outline-danger" class="navbar-nav mr-auto">Made With <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-suit-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+</svg> for <i class="fas fa-dog"></i> </p>
+
+                        <ul class="navbar-nav ml-auto weather" id="weather">
+
+                     <li class="nav-item active" id="time" > <a class="nav-link "  id="time"></a></li>
+                     <li class="nav-item" id="date"> <a class="nav-link "  id="date"></a></li>
+                        </ul>
+     <ul class="navbar-nav ml-auto">
+    <h4 class="btn btn-secondary disabled">Follow us on :</h4>
+         <li class="nav-item "><a class="nav-link mr-1" href="https://www.facebook.com/?stype=lo&jlou=Afc40hZvlpfSzPBsR_8npWdXeYLAeb0elS9yZuKqLnnEOPUGup3Ly1kv2K22HLsiOh6BvbdlkuXlu8TCic5TQm6LPGXTesJ0S_R7g9BlIzgnAw&smuh=14992&lh=Ac9ZC4uV8uN6VzmF" style="color:#3b5998"><i class="fa fa-facebook"></i></a></li>
+         <li class="nav-item "><a class="nav-link mr-1" href="https://twitter.com/krishna71873" style="color:#00acee"><i class="fa fa-twitter"></i></a></li>
+         <li class="nav-item "><a class="nav-link mr-1" href="https://www.instagram.com/krishna71873/" style="color:#3f729b"><i class="fa fa-instagram"></i></a></li>
+         <li class="nav-item "><a class="nav-link mr-1" href="https://in.linkedin.com/in/krishna-dumpala-b61a6b11a" style="color:#0e76a8"><i class="fa fa-linkedin"></i></a></li>
+         <li class="nav-item "><a class="nav-link mr-1" href="https://github.com/10540452" style="color:black"><i class="fa fa-github"></i></a></li>
+         </ul>
+    </div>
+</nav> -->
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous">
+  </script>
+  </body>
+</html>
