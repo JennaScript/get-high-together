@@ -1,5 +1,5 @@
 /*!
-    * Used some code from Start Bootstrap - Agency v6.0.3 (https://startbootstrap.com/theme/agency)
+    * Used some code from Start Bootstrap - Agency v6.0.3 
     */
     (function ($) {
     "use strict"; // Start of use strict
