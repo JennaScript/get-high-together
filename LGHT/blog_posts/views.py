@@ -9,7 +9,7 @@ blog_posts = Blueprint('blog_posts',__name__)
 @blog_posts.route('/create',methods=['GET','POST'])
 @login_required
 def create_post():
-    fordm = BlogPostForm()
+    form = BlogPostForm()
 
     if form.validate_on_submit():
 
