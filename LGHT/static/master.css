@@ -1,6 +1,9 @@
 @import 'https://fonts.googleapis.com/css?family=Nova+Mono|Eczar';
 
 
+.container {
+  padding-top: 50px;
+}
 
 #time {
   font-family: 'Nova Mono', Times;

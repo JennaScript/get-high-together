@@ -5,6 +5,10 @@ header,
   height: 100%;
 }
 
+.container {
+  padding-top: 50px;
+}
+
 @media (max-width: 740px) {
   html,
   body,
