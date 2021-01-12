@@ -2,6 +2,10 @@
   height: 70vh;
 }
 
+.container {
+  padding-top: 50px;
+}
+
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
