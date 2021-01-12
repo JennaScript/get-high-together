@@ -2,7 +2,7 @@
 
 {% block content %}
 
-         <form method="POST">
+         <form method="POST" style="padding-top: 40px;">
     {# This hidden_tag is a CSRF security feature. #}
     {{ form.hidden_tag() }}
     {{ form.email.label }} {{ form.email() }}<br>

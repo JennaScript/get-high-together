@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+
+<head>
+  <link rel="stylesheet" type= "text/css" href= "../static/master.css">
+</head>
 <div class="jumbotron">
   <h1>{{ post.title }}</h1>
   <h2>Written by: {{post.author.username}}</h2>
